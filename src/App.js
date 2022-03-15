@@ -7,7 +7,7 @@ import { Button, Input } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
-
+//Added comments
 function getModalStyle() {
   const top = 50 ;
   const left = 50;
