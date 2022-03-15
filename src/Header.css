@@ -1,9 +1,4 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    animation-direction: alternate-reverse;
 
-}
 .header_img {
     height: 100px;
     width: 100px;
@@ -11,4 +6,7 @@
 }
 .menu_chat{
     padding: 5px;
+}
+.header{
+    display: flex;
 }
