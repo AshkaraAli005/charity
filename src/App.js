@@ -74,13 +74,19 @@ function App() {
     setOpen(false);
   
   }
+  const signIn =(event) =>{
+    event.preventDefault();
+    auth.signInWithEmailAndPassword(email , password)
+    .catch((error) => alert(error.message))
+  setOpenSignIn(false);
+  }
 
   return (
     <div className="app">
     <div className='app__header'>
 
     </div>
-     <Header/>
+   <Header/>
      <Modal
       open={open}
       onClose={()=>setOpen(false)}
@@ -109,15 +115,39 @@ function App() {
           />
          <center><span> <Button onClick={signUp}>Sign UP..</Button></span></center>
           </form>
-       
         </div>
         </Modal>
+        <Modal
+      open={openSignIn}
+      onClose={()=>setOpenSignIn(false)}
+      >
+        <div style={modalStyle} className={classes.paper}>
+          <form className='app_signup'>
+         <Input
+          type='text'
+          placeholder='email'
+          value={email}
+          onChange={(e)=> setEmail(e.target.value)}
+          />
+         <Input
+          type='password'
+          placeholder='password'
+          value={password}
+          onChange={(e)=> setPassword(e.target.value)}
+          />
+         <center><span> <Button onClick={signIn}>Sign In..</Button></span></center>
+          </form>
+          </div>
+          </Modal>
         
-    x <center>
+     <center>
          {user ? (
            <Button onClick={() => auth.signOut()}>LogOut..</Button>
          ):(
-             <Button onClick={() =>setOpen(true)}>Sign Up..</Button>         
+        <div className="app_login container">
+          <Button onClick={() =>setOpenSignIn(true)}>Sign In..</Button> 
+             <Button onClick={() =>setOpen(true)}>Sign Up..</Button>
+             </div>         
          
          )}
          </center> 
